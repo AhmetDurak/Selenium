@@ -1,4 +1,4 @@
-package com._1_Amazon.Pages;
+package com._3_nopcommerce.Pages;
 
 import com.Utilities.*;
 import org.openqa.selenium.WebElement;
@@ -9,12 +9,12 @@ public abstract class BasePage {
     public BasePage(){
         PageFactory.initElements(Driver.get(), this);
     }
+    // LOCATORS
+    @FindBy (id = "small-searchterms")
+    public WebElement searchBox;
 
-    @FindBy (css = "div#nav-main>div>a")
-    public WebElement clickAll;
 
-    @FindBy (xpath = "//a[@data-csa-c-content-id='nav_cs_kindle_books']")
-    public WebElement kindleBooks;
+
 
 
 

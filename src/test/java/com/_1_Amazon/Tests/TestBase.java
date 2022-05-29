@@ -1,7 +1,7 @@
 package com._1_Amazon.Tests;
 
-import com.Utilities.ConfigurationReader;
-import com.Utilities.Driver;
+
+import com.Utilities.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;

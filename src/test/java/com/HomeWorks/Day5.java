@@ -22,8 +22,8 @@ public class Day5 {
 
     @AfterClass
     public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.close();
+        //Thread.sleep(3000);
+        //driver.close();
     }
 
     @Test
@@ -125,14 +125,14 @@ public class Day5 {
         //2. Go to http://practice.cybertekschool.com/dropdown
         driver.navigate().to("http://practice.cybertekschool.com/dropdown");
         WebElement stateSelection = driver.findElement(By.id("state"));
-        stateSelection.click();
+        //stateSelection.click();
         Select options = new Select(stateSelection);
         //3. Select Illinois
-        options.selectByValue("Illinois");
+        options.selectByVisibleText("Illinois");
         //4. Select Virginia
-        options.selectByValue("Virginia");
+        options.selectByVisibleText("Virginia");
         //5. Select California
-        options.selectByValue("California");
+        options.selectByVisibleText("California");
         //6. Verify final selected option is California.
         //Use all Select options. (visible text, value, index)
     }
@@ -142,10 +142,17 @@ public class Day5 {
         //TC #6: Selecting date on dropdown and verifying
         //1. Open Chrome browser
         //2. Go to https://practice.cydeo.com/dropdown
+        driver.navigate().to("https://practice.cydeo.com/dropdown");
         //3. Select “December 1st, 1923” and verify it is selected.
         //        Select year using  : visible text
+        Select year = new Select(driver.findElement(By.id("year")));
+        year.selectByVisibleText("1923");
         //Select month using   : value attribute
+        Select month = new Select(driver.findElement(By.id("month")));
+        month.selectByValue("11");
         //Select day using : index number
+        Select day = new Select(driver.findElement(By.id("day")));
+        day.selectByIndex(28);
     }
 
     @Test
@@ -153,20 +160,39 @@ public class Day5 {
         //TC #7: Selecting value from non-select dropdown
         //1. Open Chrome browser
         //2. Go to https://practice.cydeo.com/dropdown
+        driver.navigate().to("https://practice.cydeo.com/dropdown");
         //3. Click to non-select dropdown
+        WebElement dropdownLink = driver.findElement(By.id("dropdownMenuLink"));
+        dropdownLink.click();
         //4. Select Facebook from dropdown
+        if (dropdownLink.getAttribute("aria-expanded").equals("true")){
+            driver.findElement(new By.ByCssSelector(".dropdown.show>div>a:nth-of-type(4)")).click();
+        }
         //5. Verify title is “Facebook - Log In or Sign Up”
+        driver.findElement(new By.ByCssSelector("div._9xo5>:first-child")).click();
+        Assert.assertEquals(driver.getTitle().contains("Facebook")?"Facebook":"","Facebook","Title doesn't match with the ");
     }
 
     @Test
-    public void test8(){
+    public void test8() throws InterruptedException {
         //TC #8: Selecting value from multiple select dropdown
         //1. Open Chrome browser
         //2. Go to https://practice.cydeo.com/dropdown
+        driver.get("https://practice.cydeo.com/dropdown");
         //3. Select all the options from multiple select dropdown.
+        WebElement languages = driver.findElement(new By.ByCssSelector("select[name='Languages']"));
+        Select every = new Select(languages);
+        List<WebElement> languagesList = every.getOptions();
+        for (WebElement each: languagesList){
+            each.click();
+        }
         //4. Print out all selected values.
+        List<WebElement> selectedOptions = every.getAllSelectedOptions();
+        for (WebElement each: selectedOptions){
+            System.out.println(each.getText());
+        }
         //5. Deselect all values.
+        Thread.sleep(3000);
+        every.deselectAll();
     }
-
-
 }
