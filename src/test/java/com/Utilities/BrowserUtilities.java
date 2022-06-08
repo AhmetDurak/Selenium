@@ -139,7 +139,7 @@ public class BrowserUtilities {
      * @param timeout
      * @return
      */
-    public static WebElement waitForClickability(WebElement element, int timeout) {
+    public static WebElement waitForClickAbility(WebElement element, int timeout) {
         //  WebDriverWait wait = new WebDriverWait(Driver.get(), timeout);
         WebDriverWait wait = new WebDriverWait(Driver.get(), 20);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -152,7 +152,7 @@ public class BrowserUtilities {
      * @param timeout
      * @return
      */
-    public static WebElement waitForClickablility(By locator, int timeout) {
+    public static WebElement waitForClickAbility(By locator, int timeout) {
         //    WebDriverWait wait = new WebDriverWait(Driver.get(), timeout);
         WebDriverWait wait = new WebDriverWait(Driver.get(), 20);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
