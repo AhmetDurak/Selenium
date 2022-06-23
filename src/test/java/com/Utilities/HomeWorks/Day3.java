@@ -1,4 +1,4 @@
-package com.HomeWorks;
+package com.Utilities.HomeWorks;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

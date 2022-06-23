@@ -1,4 +1,4 @@
-package com.HomeWorks;
+package com.Utilities.HomeWorks;
 
 import com.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;

@@ -1,4 +1,4 @@
-package com.HomeWorks;
+package com.Utilities.HomeWorks;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;

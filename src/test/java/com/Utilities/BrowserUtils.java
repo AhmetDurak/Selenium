@@ -1,10 +1,13 @@
 package com.Utilities;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /*
  *This is the class, which we're going to store reusable methods to use in our projects
@@ -19,6 +22,12 @@ public class BrowserUtils {
         }catch (InterruptedException ignored){}
     }
 
+    /*
+    * This method accepts 2 arguments.
+    * Arg1: expectedInUrl : for verify if the url contains given String
+        - if condition matches, will break loop.
+    * Arg2: expectedTitle to be compared against actualTitle
+    */
     public static void switchWindowAndVerify(String expectedInUrl, String expectedTitle){
         Set<String> allWindows = Driver.get().getWindowHandles();
 
@@ -36,6 +45,38 @@ public class BrowserUtils {
     // This method accepts  a String  "expectedTitle" and asserts if it is true
     public static void verifyTitle(String expectedTitle){
         Assert.assertEquals(Driver.get().getTitle(), expectedTitle);
+    }
+
+
+    // These two methods are for test cases of the task in day 7
+    public static void crm_login(){
+        Driver.get().get("http://login1.nextbasecrm.com/ ");
+        Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        WebElement username = Driver.get().findElement(new By.ByCssSelector("input[name='USER_LOGIN']"));
+        WebElement password = Driver.get().findElement(new By.ByCssSelector("input[name='USER_PASSWORD']"));
+        WebElement login = Driver.get().findElement(new By.ByCssSelector("input[type='submit'"));
+
+        username.click();
+        username.sendKeys("helpdesk1@cybertekschool.com");
+        password.click();
+        password.sendKeys("UserUser");
+        login.click();
+    }
+
+    public static void crm_login(String username, String password){
+        Driver.get().get("http://login1.nextbasecrm.com/ ");
+        Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        WebElement username1 = Driver.get().findElement(new By.ByCssSelector("input[name='USER_LOGIN']"));
+        WebElement password1 = Driver.get().findElement(new By.ByCssSelector("input[name='USER_PASSWORD']"));
+        WebElement login = Driver.get().findElement(new By.ByCssSelector("input[type='submit'"));
+
+        username1.click();
+        username1.sendKeys(username);
+        password1.click();
+        password1.sendKeys(password);
+        login.click();
     }
 
 }

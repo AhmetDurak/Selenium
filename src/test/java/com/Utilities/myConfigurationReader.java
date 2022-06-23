@@ -1,29 +1,33 @@
 package com.Utilities;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 public class myConfigurationReader {
     private static Properties properties;
 
     static {
+
         try {
-            String path = "myConfig.properties";
-
+            // which file to read
+            String path = "configuration.properties";
+            // read the file into java, finds the file using the string path
             FileInputStream file = new FileInputStream(path);
-
+            // properties --> class that store properties in key / value format
             properties = new Properties();
-
+            // the values from the file input is loaded / fed in to the properties object
             properties.load(file);
 
-
-        } catch (IOException e) {
+            file.close();
+        } catch (Exception e) {
             e.printStackTrace();
+
         }
     }
 
-    public static String get(String keyName){
+    public static String get(String keyName) {
+
         return properties.getProperty(keyName);
     }
+
 }
