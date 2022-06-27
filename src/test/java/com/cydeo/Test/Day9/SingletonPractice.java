@@ -1,4 +1,4 @@
-package com.cydeo.tests.Day9;
+package com.cydeo.Test.Day9;
 
 import org.testng.annotations.Test;
 

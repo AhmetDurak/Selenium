@@ -1,4 +1,4 @@
-package com.cydeo.tests.HomeWorks;
+package com.cydeo.Test.Day2_8;
 
 import com.Utilities.BrowserUtils;
 import com.Utilities.Driver;
