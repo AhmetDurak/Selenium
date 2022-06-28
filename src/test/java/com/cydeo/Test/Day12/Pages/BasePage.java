@@ -48,4 +48,7 @@ public abstract class BasePage {
 
     @FindBy (css = "button[type='submit']")
     public WebElement submitBtn;
+
+    @FindBy (id = "flash")
+    public WebElement flashAlert;
 }

@@ -40,6 +40,7 @@ public class WebDriverWaitPractice extends TestBase2{
        //7. Click to Submit button
         dynamicTitle.submitBtn.click();
        //8. Assert “Your password is invalid!” text is displayed.
+        Assert.assertTrue(dynamicTitle.flashAlert.isDisplayed());
        //        Note: Follow POM Design Pattern
     }
 }
