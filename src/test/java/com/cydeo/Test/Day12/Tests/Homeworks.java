@@ -7,14 +7,13 @@ import org.testng.annotations.Test;
 import com.Utilities.*;
 
 public class Homeworks extends TestBase{
-    LoginPage login = new LoginPage();
+
 
     @Test
     public void ErrorMessageTest(){
         //TC #1: Required field error message test
         //1- Open a chrome browser
         //2- Go to: https://library1.cydeo.com
-        Driver.get().get(ConfigurationReader.get("cydeo"));
         //3- Do not enter any information
         //4- Click to “Sign in” button
         login.signIn.click();
@@ -30,7 +29,6 @@ public class Homeworks extends TestBase{
         //TC #2: Invalid email format error message test
         //1- Open a chrome browser
         //2- Go to: https://library1.cydeo.com
-        Driver.get().get(ConfigurationReader.get("cydeo"));
         //3- Enter invalid email format
         login.userEmail.sendKeys("asödkjfalkdm");
         login.signIn.click();
@@ -45,15 +43,15 @@ public class Homeworks extends TestBase{
     }
 
     @Test
-    public void libraryNegativeLoginTest() {
+    public void libraryNegativeLoginTest() throws InterruptedException {
         //TC #3: Library negative login
         //1- Open a chrome browser
         //2- Go to: https://library1.cydeo.com
-        Driver.get().get(ConfigurationReader.get("cydeo"));
         //3- Enter incorrect username or incorrect password
         login.userEmail.sendKeys("aadfsdkfj@cydeo.com");
         login.password.sendKeys("HelloKids");
         login.signIn.click();
+        Thread.sleep(1000);
         //4- Verify title expected error is displayed:
         Assert.assertTrue(login.errorMessage2.isDisplayed());
         //Expected: Sorry, Wrong Email or Password
@@ -62,4 +60,5 @@ public class Homeworks extends TestBase{
 
         //NOTE: FOLLOW POM DESIGN PATTERN
     }
+
 }
