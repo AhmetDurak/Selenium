@@ -45,7 +45,7 @@ public class Homeworks extends TestBase{
     }
 
     @Test
-    public void libraryNegativeLoginTest(){
+    public void libraryNegativeLoginTest() {
         //TC #3: Library negative login
         //1- Open a chrome browser
         //2- Go to: https://library1.cydeo.com
@@ -55,10 +55,10 @@ public class Homeworks extends TestBase{
         login.password.sendKeys("HelloKids");
         login.signIn.click();
         //4- Verify title expected error is displayed:
-        Assert.assertTrue(login.errorMessage.isDisplayed());
+        Assert.assertTrue(login.errorMessage2.isDisplayed());
         //Expected: Sorry, Wrong Email or Password
         String expected = "Sorry, Wrong Email or Password";
-        Assert.assertEquals(expected, login.errorMessage.getText());
+        Assert.assertEquals(expected, login.errorMessage2.getText());
 
         //NOTE: FOLLOW POM DESIGN PATTERN
     }

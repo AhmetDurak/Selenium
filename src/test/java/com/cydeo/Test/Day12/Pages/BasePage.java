@@ -24,4 +24,7 @@ public abstract class BasePage {
 
     @FindBy (id = "inputPassword")
     public WebElement password;
+
+    @FindBy (css = ".alert.alert-danger")
+    public WebElement errorMessage2;
 }
