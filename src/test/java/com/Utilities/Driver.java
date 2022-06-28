@@ -67,8 +67,8 @@ public class Driver {
 
     public static void closeDriver() {
         if (driver != null) {
-            driver.quit();
-            driver = null;
+            driver.quit();  // It kills the session(driver_id: 13241325346356)
+            driver = null; // So next session can start(generate a new driver_id)
         }
     }
 }
