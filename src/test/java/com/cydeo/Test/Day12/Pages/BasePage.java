@@ -1,4 +1,4 @@
-package com.cydeo.Test.Day12.Page;
+package com.cydeo.Test.Day12.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
