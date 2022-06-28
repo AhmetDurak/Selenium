@@ -27,4 +27,10 @@ public abstract class BasePage {
 
     @FindBy (css = ".alert.alert-danger")
     public WebElement errorMessage2;
+
+    @FindBy (id = "alert")
+    public WebElement alert;
+
+    @FindBy (tagName = "img")
+    public WebElement squarePants;
 }

@@ -1,12 +1,9 @@
 package com.cydeo.Test.Day12.Tests;
 
-import com.cydeo.Test.Day12.Pages.BasePage;
-import com.cydeo.Test.Day12.Pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.Utilities.*;
 
-public class Homeworks extends TestBase{
+public class PomPractice extends TestBase{
 
 
     @Test

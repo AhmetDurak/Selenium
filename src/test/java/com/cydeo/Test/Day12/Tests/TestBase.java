@@ -28,22 +28,24 @@ public class TestBase {
         Driver.closeDriver();
     }
 }
+
+// this testBase is for the WebDriverWaitPractice
 class TestBase2{
-    LoginPage login;
+    LoginPage dynamicTitle;
     Actions actions;
     WebDriverWait wait;
 
     @BeforeClass
     public void setUp(){
-        Driver.get().get(ConfigurationReader.get("cydeo"));
+        Driver.get().get(ConfigurationReader.get("dynamicLoading"));
         Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        login = new LoginPage();
+        dynamicTitle = new LoginPage();
         actions = new Actions(Driver.get());
         wait = new WebDriverWait(Driver.get(), 10);
     }
 
     @AfterClass
     public void tearDown(){
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 }
