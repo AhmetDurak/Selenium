@@ -37,7 +37,6 @@ class TestBase2{
 
     @BeforeClass
     public void setUp(){
-        Driver.get().get(ConfigurationReader.get("dynamicLoading"));
         Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         dynamicTitle = new LoginPage();
         actions = new Actions(Driver.get());

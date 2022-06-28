@@ -32,5 +32,20 @@ public abstract class BasePage {
     public WebElement alert;
 
     @FindBy (tagName = "img")
-    public WebElement squarePants;
+    public WebElement spongeBobImage;
+
+    @FindBy (css = "#start>button")
+    public WebElement startBtn;
+
+    @FindBy (id = "loading")
+    public WebElement loadingBar;
+
+    @FindBy (id = "username")
+    public WebElement username;
+
+    @FindBy (id = "pwd")
+    public WebElement passwordDy;
+
+    @FindBy (css = "button[type='submit']")
+    public WebElement submitBtn;
 }
