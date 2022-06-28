@@ -18,4 +18,10 @@ public abstract class BasePage {
 
     @FindBy (id = "inputEmail-error")
     public WebElement errorMessage;
+
+    @FindBy (id = "inputEmail")
+    public WebElement userEmail;
+
+    @FindBy (id = "inputPassword")
+    public WebElement password;
 }
